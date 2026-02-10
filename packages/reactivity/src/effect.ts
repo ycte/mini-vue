@@ -1,5 +1,6 @@
-import { createDep, Dep } from './dep'
+import type { Dep } from './dep'
 import { extend } from '@mini-vue/shared'
+import { createDep } from './dep'
 
 let activeEffect: ReactiveEffect | undefined = void 0
 let shouldTrack = false
@@ -106,10 +107,11 @@ export function isTracking() {
 }
 
 export function trigger(target: object, type: string, key: string | symbol) {
-  let depsMap = targetMap.get(target)
-  if (!depsMap) return
+  const depsMap = targetMap.get(target)
+  if (!depsMap)
+    return
 
-  let dep = depsMap.get(key)
+  const dep = depsMap.get(key)
 
   triggerEffects(dep)
 }
@@ -119,7 +121,8 @@ export function triggerEffects(dep: Dep) {
   for (const effect of dep) {
     if (effect.scheduler) {
       effect.scheduler()
-    } else {
+    }
+    else {
       effect.run()
     }
   }

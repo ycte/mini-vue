@@ -28,7 +28,8 @@ function traverseNode(node: any, context: any) {
   for (let i = 0; i < nodeTransforms.length; i++) {
     const transform = nodeTransforms[i]
     const onExit = transform(node, context)
-    if (onExit) exitFns.push(onExit)
+    if (onExit)
+      exitFns.push(onExit)
   }
 
   switch (node.type) {
@@ -62,7 +63,8 @@ function createRootCodegen(root: any) {
   const child = root.children[0]
   if (child.type === NodeTypes.ELEMENT) {
     root.codegenNode = child.codegenNode
-  } else {
+  }
+  else {
     root.codegenNode = root.children[0]
   }
 }

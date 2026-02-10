@@ -1,3 +1,3 @@
-export const toDisplayString = (val: any): string => {
+export function toDisplayString(val: any): string {
   return String(val)
 }

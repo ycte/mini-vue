@@ -105,7 +105,8 @@ function genNodeList(nodes: any, context: any) {
     const node = nodes[i]
     if (isString(node)) {
       push(node)
-    } else {
+    }
+    else {
       genNode(node, context)
     }
 
@@ -126,7 +127,8 @@ function genCompoundExpression(node: any, context: any) {
     const child = children[i]
     if (isString(child)) {
       push(child)
-    } else {
+    }
+    else {
       genNode(child, context)
     }
   }

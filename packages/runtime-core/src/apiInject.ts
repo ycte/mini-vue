@@ -1,3 +1,5 @@
+import { getCurrentInstance } from './component'
+
 export function provide(key: string | symbol, value: any) {
   const currentInstance: any = getCurrentInstance()
 
@@ -21,7 +23,8 @@ export function inject(key: string | symbol, defaultValue?: any) {
 
     if (key in parentProvides) {
       return parentProvides[key]
-    } else if (defaultValue) {
+    }
+    else if (defaultValue) {
       if (typeof defaultValue === 'function') {
         return defaultValue()
       }
@@ -29,5 +32,3 @@ export function inject(key: string | symbol, defaultValue?: any) {
     }
   }
 }
-
-import { getCurrentInstance } from './component'

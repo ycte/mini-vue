@@ -5,10 +5,10 @@ export function transformElement(node: any, context: any) {
     return () => {
       const { tag, children } = node
 
-      let vnodeTag = `"${tag}"`
+      const vnodeTag = `"${tag}"`
       let vnodeProps
 
-      let vnodeChildren = children[0]
+      const vnodeChildren = children[0]
 
       node.codegenNode = createVNodeCall(
         context,

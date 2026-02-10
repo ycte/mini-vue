@@ -25,7 +25,8 @@ export function transformText(node: any) {
               currentContainer.children.push(next)
               children.splice(j, 1)
               j--
-            } else {
+            }
+            else {
               currentContainer = undefined
               break
             }

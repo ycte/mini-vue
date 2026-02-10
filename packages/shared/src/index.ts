@@ -1,7 +1,7 @@
 export * from './shapeFlags'
 export * from './toDisplayString'
 
-export const isObject = (val: any): val is object => {
+export function isObject(val: any): val is object {
   return val !== null && typeof val === 'object'
 }
 
@@ -25,7 +25,7 @@ const camelizeRE = /-(\w)/g
  * @private
  * 把烤肉串命名方式转换成驼峰命名方式
  */
-export const camelize = (str: string): string => {
+export function camelize(str: string): string {
   return str.replace(camelizeRE, (_, c) => (c ? c.toUpperCase() : ''))
 }
 
@@ -33,12 +33,14 @@ export const camelize = (str: string): string => {
  * @private
  * 首字母大写
  */
-export const capitalize = (str: string): string =>
-  str.charAt(0).toUpperCase() + str.slice(1)
+export function capitalize(str: string): string {
+  return str.charAt(0).toUpperCase() + str.slice(1)
+}
 
 /**
  * @private
  * 添加 on 前缀，并且首字母大写
  */
-export const toHandlerKey = (str: string): string =>
-  str ? 'on' + capitalize(str) : ''
+export function toHandlerKey(str: string): string {
+  return str ? `on${capitalize(str)}` : ''
+}

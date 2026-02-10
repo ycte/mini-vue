@@ -63,6 +63,6 @@ export function isProxy(value: any): boolean {
 }
 
 export function toRaw(observed: any): any {
-  const original = observed && observed['__v_raw']
+  const original = observed && observed.__v_raw
   return original ? toRaw(original) : observed
 }

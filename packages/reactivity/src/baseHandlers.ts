@@ -1,6 +1,6 @@
+import { isObject } from '@mini-vue/shared'
 import { track, trigger } from './effect'
 import { ReactiveFlags } from './reactive'
-import { isObject } from '@mini-vue/shared'
 
 // 用于缓存，避免重复代理
 const get = createGetter()
@@ -12,7 +12,8 @@ function createGetter(isReadonly = false, shallow = false) {
   return function get(target: any, key: string | symbol, receiver: any) {
     if (key === ReactiveFlags.IS_REACTIVE) {
       return !isReadonly
-    } else if (key === ReactiveFlags.IS_READONLY) {
+    }
+    else if (key === ReactiveFlags.IS_READONLY) {
       return isReadonly
     }
 

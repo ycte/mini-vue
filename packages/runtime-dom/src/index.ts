@@ -1,7 +1,7 @@
-export * from '@mini-vue/runtime-core'
 import { createRenderer } from '@mini-vue/runtime-core'
-import { extend } from '@mini-vue/shared'
 import { patchProp } from './patchProp'
+
+export * from '@mini-vue/runtime-core'
 
 function createElement(type: string) {
   return document.createElement(type)

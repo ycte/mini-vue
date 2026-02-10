@@ -23,10 +23,12 @@ function insert(child: any, parent: any, anchor: any = null) {
     const index = parent.children.indexOf(anchor)
     if (index !== -1) {
       parent.children.splice(index, 0, child)
-    } else {
+    }
+    else {
       parent.children.push(child)
     }
-  } else {
+  }
+  else {
     parent.children.push(child)
   }
 }

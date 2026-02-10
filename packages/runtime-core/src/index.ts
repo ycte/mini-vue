@@ -1,24 +1,24 @@
-export * from './h'
-export * from './createApp'
-export { getCurrentInstance, registerRuntimeCompiler } from './component'
 export { inject, provide } from './apiInject'
+export { getCurrentInstance, registerRuntimeCompiler } from './component'
+export * from './createApp'
+export * from './h'
 export { renderSlot } from './helpers/renderSlot'
-export { createTextVNode, createElementVNode } from './vnode'
 export { createRenderer } from './renderer'
-export { toDisplayString } from '@mini-vue/shared'
 export { nextTick } from './scheduler'
+export { createElementVNode, createTextVNode } from './vnode'
 export {
-  reactive,
-  ref,
-  readonly,
-  unRef,
-  proxyRefs,
-  isReadonly,
-  isReactive,
-  isProxy,
-  isRef,
-  shallowReadonly,
-  effect,
-  stop,
   computed,
+  effect,
+  isProxy,
+  isReactive,
+  isReadonly,
+  isRef,
+  proxyRefs,
+  reactive,
+  readonly,
+  ref,
+  shallowReadonly,
+  stop,
+  unRef,
 } from '@mini-vue/reactivity'
+export { toDisplayString } from '@mini-vue/shared'

@@ -1,7 +1,8 @@
+import type { Dep } from './dep'
 import { hasChanged, isObject } from '@mini-vue/shared'
-import { trackEffects, triggerEffects, isTracking } from './effect'
+import { createDep } from './dep'
+import { isTracking, trackEffects, triggerEffects } from './effect'
 import { reactive } from './reactive'
-import { createDep, Dep } from './dep'
 
 export class RefImpl {
   private _rawValue: any
@@ -65,7 +66,8 @@ export function proxyRefs(objectWithRefs: any) {
       if (isRef(oldValue) && !isRef(value)) {
         oldValue.value = value
         return true
-      } else {
+      }
+      else {
         return Reflect.set(target, key, value, receiver)
       }
     },

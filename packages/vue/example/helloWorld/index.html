@@ -1,21 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello World - mini-vue</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World - mini-vue</title>
-</head>
+  <body>
+    <div id="root"></div>
+    <script type="module">
+      import { createApp } from '../../dist/mini-vue.esm-bundler.js'
+      import App from './App.js'
 
-<body>
-  <div id="root"></div>
-  <script type="module">
-    import { createApp } from "../../dist/mini-vue.esm-bundler.js";
-    import App from "./App.js";
-
-    const rootContainer = document.querySelector("#root");
-    createApp(App).mount(rootContainer);
-  </script>
-</body>
-
+      const rootContainer = document.querySelector('#root')
+      createApp(App).mount(rootContainer)
+    </script>
+  </body>
 </html>

@@ -32,28 +32,35 @@ mini-vue/
 ## 快速命令
 
 ### 构建项目
+
 ```bash
 pnpm build
 ```
+
 生成文件：
+
 - `packages/vue/dist/mini-vue.cjs.js` (CommonJS)
 - `packages/vue/dist/mini-vue.esm-bundler.js` (ES Module)
 
 ### 运行测试
+
 ```bash
 pnpm test
 ```
 
 ### 运行示例
+
 1. 使用 Live Server 打开 `packages/vue/example/helloWorld/index.html`
 2. 或使用 VS Code 扩展: [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 
 ## 下一步：TDD 学习路径
 
 ### 阶段 1: Reactivity (响应式系统)
+
 建议按以下顺序实现和测试：
 
 1. **effect & reactive & 依赖收集**
+
    ```bash
    # 测试文件已创建: packages/reactivity/__tests__/effect.spec.ts
    # 核心文件: packages/reactivity/src/effect.ts
@@ -67,6 +74,7 @@ pnpm test
 7. **实现 computed**
 
 ### 阶段 2: Runtime-Core (运行时)
+
 1. 组件初始化流程
 2. 元素渲染
 3. props 和 emit
@@ -75,6 +83,7 @@ pnpm test
 6. diff 算法
 
 ### 阶段 3: Compiler (编译器)
+
 1. 解析插值
 2. 解析 element
 3. 解析 text
@@ -84,6 +93,7 @@ pnpm test
 ## 测试状态
 
 当前测试：
+
 - ✅ `packages/reactivity/__tests__/reactive.spec.ts` - reactive 基础测试
 - ✅ `packages/reactivity/__tests__/effect.spec.ts` - effect 基础测试
 
@@ -105,6 +115,7 @@ pnpm test
 ## 当前可用的功能
 
 所有包的基础代码骨架已完成，包括：
+
 - ✅ 完整的响应式系统实现
 - ✅ 组件系统和渲染器
 - ✅ 双端 diff 算法

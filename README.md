@@ -52,6 +52,7 @@ pnpm build
 ```
 
 构建完成后会在 `packages/vue/dist/` 目录生成：
+
 - `mini-vue.cjs.js` - CommonJS 格式
 - `mini-vue.esm-bundler.js` - ES Module 格式
 
@@ -124,6 +125,7 @@ pnpm test
 建议按照以下顺序学习：
 
 ### 1. Reactivity（响应式系统）
+
 1. 实现 effect & reactive & 依赖收集 & 触发依赖
 2. 实现 effect 返回 runner
 3. 实现 effect 的 scheduler 功能
@@ -139,6 +141,7 @@ pnpm test
 13. 实现 computed
 
 ### 2. Runtime-Core（运行时核心）
+
 1. 初始化 component 主流程
 2. 实现组件代理对象
 3. 实现 shapeFlags
@@ -158,6 +161,7 @@ pnpm test
 17. 实现 nextTick
 
 ### 3. Compiler-Core（编译器）
+
 1. 实现解析插值功能
 2. 实现解析 element 标签
 3. 实现解析 text 功能

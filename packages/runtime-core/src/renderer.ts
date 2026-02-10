@@ -3,7 +3,7 @@ import { ShapeFlags } from '@mini-vue/shared'
 import { createComponentInstance, setupComponent } from './component'
 import { createAppAPI } from './createApp'
 import { queueJob } from './scheduler'
-import { Fragment, Text, normalizeVNode } from './vnode'
+import { Fragment, normalizeVNode, Text } from './vnode'
 
 export function createRenderer(options: any) {
   const {
@@ -13,7 +13,7 @@ export function createRenderer(options: any) {
     remove: hostRemove,
     setElementText: hostSetElementText,
     createText: hostCreateText,
-    setText: hostSetText,
+    setText: _hostSetText,
   } = options
 
   function render(vnode: any, container: any) {
@@ -33,7 +33,8 @@ export function createRenderer(options: any) {
       default:
         if (shapeFlag & ShapeFlags.ELEMENT) {
           processElement(n1, n2, container, parentComponent)
-        } else if (shapeFlag & ShapeFlags.STATEFUL_COMPONENT) {
+        }
+        else if (shapeFlag & ShapeFlags.STATEFUL_COMPONENT) {
           processComponent(n1, n2, container, parentComponent)
         }
         break
@@ -63,7 +64,8 @@ export function createRenderer(options: any) {
   ) {
     if (!n1) {
       mountElement(n2, container, parentComponent)
-    } else {
+    }
+    else {
       patchElement(n1, n2, container, parentComponent)
     }
   }
@@ -118,11 +120,13 @@ export function createRenderer(options: any) {
       if (c1 !== c2) {
         hostSetElementText(container, c2)
       }
-    } else {
+    }
+    else {
       if (prevShapeFlag & ShapeFlags.TEXT_CHILDREN) {
         hostSetElementText(container, '')
         mountChildren(c2, container, parentComponent)
-      } else {
+      }
+      else {
         patchKeyedChildren(c1, c2, container, parentComponent)
       }
     }
@@ -150,7 +154,8 @@ export function createRenderer(options: any) {
 
       if (isSameVNodeType(n1, n2)) {
         patch(n1, n2, container, parentComponent)
-      } else {
+      }
+      else {
         break
       }
 
@@ -164,7 +169,8 @@ export function createRenderer(options: any) {
 
       if (isSameVNodeType(n1, n2)) {
         patch(n1, n2, container, parentComponent)
-      } else {
+      }
+      else {
         break
       }
 
@@ -176,19 +182,21 @@ export function createRenderer(options: any) {
     if (i > e1) {
       if (i <= e2) {
         const nextPos = e2 + 1
-        const anchor = nextPos < l2 ? c2[nextPos].el : null
+        const _anchor = nextPos < l2 ? c2[nextPos].el : null
         while (i <= e2) {
           patch(null, c2[i], container, parentComponent)
           i++
         }
       }
-    } else if (i > e2) {
+    }
+    else if (i > e2) {
       // 老的比新的长
       while (i <= e1) {
         hostRemove(c1[i].el)
         i++
       }
-    } else {
+    }
+    else {
       // 中间对比
       const s1 = i
       const s2 = i
@@ -219,7 +227,8 @@ export function createRenderer(options: any) {
         let newIndex
         if (prevChild.key != null) {
           newIndex = keyToNewIndexMap.get(prevChild.key)
-        } else {
+        }
+        else {
           for (let j = s2; j <= e2; j++) {
             if (isSameVNodeType(prevChild, c2[j])) {
               newIndex = j
@@ -230,10 +239,12 @@ export function createRenderer(options: any) {
 
         if (newIndex === undefined) {
           hostRemove(prevChild.el)
-        } else {
+        }
+        else {
           if (newIndex >= maxNewIndexSoFar) {
             maxNewIndexSoFar = newIndex
-          } else {
+          }
+          else {
             moved = true
           }
 
@@ -255,10 +266,12 @@ export function createRenderer(options: any) {
 
         if (newIndexToOldIndexMap[i] === 0) {
           patch(null, nextChild, container, parentComponent)
-        } else if (moved) {
+        }
+        else if (moved) {
           if (j < 0 || i !== increasingNewIndexSequence[j]) {
             hostInsert(nextChild.el, container, anchor)
-          } else {
+          }
+          else {
             j--
           }
         }
@@ -280,7 +293,8 @@ export function createRenderer(options: any) {
 
     if (shapeFlag & ShapeFlags.TEXT_CHILDREN) {
       hostSetElementText(el, children)
-    } else if (shapeFlag & ShapeFlags.ARRAY_CHILDREN) {
+    }
+    else if (shapeFlag & ShapeFlags.ARRAY_CHILDREN) {
       mountChildren(children, el, parentComponent)
     }
 
@@ -306,7 +320,8 @@ export function createRenderer(options: any) {
   ) {
     if (!n1) {
       mountComponent(n2, container, parentComponent)
-    } else {
+    }
+    else {
       updateComponent(n1, n2)
     }
   }
@@ -316,7 +331,8 @@ export function createRenderer(options: any) {
     if (shouldUpdateComponent(n1, n2)) {
       instance.next = n2
       instance.update()
-    } else {
+    }
+    else {
       n2.el = n1.el
       instance.vnode = n2
     }
@@ -349,7 +365,8 @@ export function createRenderer(options: any) {
 
           initialVNode.el = subTree.el
           instance.isMounted = true
-        } else {
+        }
+        else {
           const { next, vnode } = instance
 
           if (next) {
@@ -417,7 +434,8 @@ function getSequence(arr: number[]): number[] {
         c = (u + v) >> 1
         if (arr[result[c]] < arrI) {
           u = c + 1
-        } else {
+        }
+        else {
           v = c
         }
       }

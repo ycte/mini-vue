@@ -48,7 +48,8 @@ function setupStatefulComponent(instance: any) {
     setCurrentInstance(null)
 
     handleSetupResult(instance, setupResult)
-  } else {
+  }
+  else {
     finishComponentSetup(instance)
   }
 }
@@ -79,8 +80,8 @@ export function setCurrentInstance(instance: any) {
   currentInstance = instance
 }
 
-let compile: any
+let _compile: any
 
-export function registerRuntimeCompiler(_compile: any) {
-  compile = _compile
+export function registerRuntimeCompiler(__compile: any) {
+  _compile = __compile
 }

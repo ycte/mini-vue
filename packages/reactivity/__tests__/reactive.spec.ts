@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { reactive } from '../src/reactive'
 
 describe('reactive', () => {

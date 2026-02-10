@@ -25,7 +25,8 @@ function parseChildren(context: any, ancestors: any[]) {
 
     if (s.startsWith('{{')) {
       node = parseInterpolation(context)
-    } else if (s[0] === '<') {
+    }
+    else if (s[0] === '<') {
       if (/[a-z]/i.test(s[1])) {
         node = parseElement(context, ancestors)
       }
@@ -58,8 +59,8 @@ function isEnd(context: any, ancestors: any[]) {
 
 function startsWithEndTagOpen(source: string, tag: string) {
   return (
-    source.startsWith('</') &&
-    source.slice(2, 2 + tag.length).toLowerCase() === tag.toLowerCase()
+    source.startsWith('</')
+    && source.slice(2, 2 + tag.length).toLowerCase() === tag.toLowerCase()
   )
 }
 
@@ -84,7 +85,7 @@ function parseInterpolation(context: any) {
     type: NodeTypes.INTERPOLATION,
     content: {
       type: NodeTypes.SIMPLE_EXPRESSION,
-      content: content,
+      content,
     },
   }
 }
@@ -97,7 +98,8 @@ function parseElement(context: any, ancestors: any[]) {
 
   if (startsWithEndTagOpen(context.source, element.tag)) {
     parseTag(context, TagType.End)
-  } else {
+  }
+  else {
     throw new Error(`缺少结束标签: ${element.tag}`)
   }
 
@@ -111,7 +113,8 @@ function parseTag(context: any, type: TagType) {
   advanceBy(context, match[0].length)
   advanceBy(context, 1)
 
-  if (type === TagType.End) return
+  if (type === TagType.End)
+    return
 
   return {
     type: NodeTypes.ELEMENT,
@@ -121,7 +124,7 @@ function parseTag(context: any, type: TagType) {
 
 function parseText(context: any) {
   let endIndex = context.source.length
-  let endTokens = ['<', '{{']
+  const endTokens = ['<', '{{']
 
   for (let i = 0; i < endTokens.length; i++) {
     const index = context.source.indexOf(endTokens[i])

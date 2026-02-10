@@ -14,7 +14,8 @@ export function queueJob(job: any) {
 }
 
 function queueFlush() {
-  if (isFlushPending) return
+  if (isFlushPending)
+    return
   isFlushPending = true
 
   nextTick(flushJobs)

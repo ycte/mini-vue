@@ -16,7 +16,8 @@ export function createVNode(type: any, props?: any, children?: any) {
   // 基于 children 再次设置 shapeFlag
   if (typeof children === 'string') {
     vnode.shapeFlag |= ShapeFlags.TEXT_CHILDREN
-  } else if (Array.isArray(children)) {
+  }
+  else if (Array.isArray(children)) {
     vnode.shapeFlag |= ShapeFlags.ARRAY_CHILDREN
   }
 
@@ -45,7 +46,8 @@ function getShapeFlag(type: any) {
 export function normalizeVNode(child: any) {
   if (typeof child === 'string' || typeof child === 'number') {
     return createVNode(Text, null, String(child))
-  } else {
+  }
+  else {
     return child
   }
 }
