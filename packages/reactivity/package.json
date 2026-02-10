@@ -1,0 +1,11 @@
+{
+  "name": "@mini-vue/reactivity",
+  "version": "1.0.0",
+  "description": "reactivity system for mini-vue",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
+  "dependencies": {
+    "@mini-vue/shared": "workspace:*"
+  }
+}

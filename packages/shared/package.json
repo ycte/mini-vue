@@ -1,0 +1,8 @@
+{
+  "name": "@mini-vue/shared",
+  "version": "1.0.0",
+  "description": "shared utilities for mini-vue",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "src/index.ts"
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@mini-vue/runtime-dom",
+  "version": "1.0.0",
+  "description": "DOM-specific runtime for mini-vue",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
+  "dependencies": {
+    "@mini-vue/runtime-core": "workspace:*",
+    "@mini-vue/shared": "workspace:*"
+  }
+}

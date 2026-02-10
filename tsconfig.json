@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ES2016",
+    "module": "ESNext",
+    "lib": [
+      "ES2016",
+      "DOM"
+    ],
+    "moduleResolution": "bundler",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "ignoreDeprecations": "6.0",
+    "baseUrl": ".",
+    "paths": {
+      "@mini-vue/*": [
+        "packages/*/src"
+      ]
+    }
+  },
+  "include": [
+    "packages/*/src",
+    "packages/*/__tests__"
+  ]
+}

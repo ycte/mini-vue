@@ -1,0 +1,12 @@
+{
+  "name": "@mini-vue/vue",
+  "version": "1.0.0",
+  "description": "mini-vue main entry",
+  "main": "dist/mini-vue.cjs.js",
+  "module": "dist/mini-vue.esm-bundler.js",
+  "types": "src/index.ts",
+  "dependencies": {
+    "@mini-vue/runtime-dom": "workspace:*",
+    "@mini-vue/compiler-core": "workspace:*"
+  }
+}

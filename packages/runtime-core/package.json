@@ -1,0 +1,12 @@
+{
+  "name": "@mini-vue/runtime-core",
+  "version": "1.0.0",
+  "description": "platform-agnostic runtime core for mini-vue",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
+  "dependencies": {
+    "@mini-vue/reactivity": "workspace:*",
+    "@mini-vue/shared": "workspace:*"
+  }
+}

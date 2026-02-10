@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+pnpm-lock.yaml
+
+# Build output
+dist/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test coverage
+coverage/
+
+# Temporary files
+*.tmp
+.cache/
