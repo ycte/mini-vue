@@ -816,10 +816,22 @@ private _dirty = true
 ### effect.spec.ts
 
 - ✅ 基础功能：立即执行、数据变化时重新执行
+- ✅ 返回 runner 函数
+- ✅ scheduler：自定义调度器
+- ✅ stop：停止响应式更新
+- ✅ onStop：停止时执行回调
+- ✅ stop 后仍可手动执行
 
 ### reactive.spec.ts
 
 - ✅ 基础功能：创建响应式对象、不等于原对象
+- ✅ 嵌套对象自动转换为响应式
+- ✅ readonly：创建只读对象、嵌套只读
+- ✅ readonly 警告：set 操作发出警告
+- ✅ isReactive：判断是否为响应式对象
+- ✅ isReadonly：判断是否为只读对象
+- ✅ isProxy：判断是否为代理对象
+- ✅ shallowReadonly：浅层只读、允许嵌套属性修改
 
 ### ref.spec.ts
 
@@ -827,19 +839,31 @@ private _dirty = true
 - ✅ 响应式更新
 - ✅ 相同值不触发更新
 - ✅ 嵌套对象自动 reactive
+- ✅ isRef：判断是否为 ref
+- ✅ unRef：解包 ref
+- ✅ proxyRefs：自动解包和赋值
 
-**建议增加的测试**：
+### computed.spec.ts
 
-- [ ] effect scheduler
-- [ ] effect stop
-- [ ] effect onStop
-- [ ] readonly 警告
-- [ ] isReactive / isReadonly / isProxy
-- [ ] shallowReadonly
-- [ ] computed 缓存
-- [ ] proxyRefs
+- ✅ 基础功能：计算属性
+- ✅ 懒计算：不访问不计算
+- ✅ 缓存机制：避免重复计算
+- ✅ 依赖更新：依赖变化时重新计算
+
+**测试统计**：
+
+- 测试文件：4 个
+- 测试用例：30 个 ✅
+- 测试通过率：100%
+
+**仍可增加的测试**：
+
 - [ ] 循环引用处理
-- [ ] 边界情况
+- [ ] 更多边界情况（null、undefined、Symbol 等）
+- [ ] 数组操作测试（push、pop、splice 等）
+- [ ] Map/Set 响应式
+- [ ] toRaw 测试
+- [ ] 性能测试
 
 ---
 
