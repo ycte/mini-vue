@@ -379,29 +379,29 @@ it('emit with kebab-case')
 
 ### 3.1 DOM 操作
 
-- [ ] createElement
-- [ ] insert
-- [ ] remove
-- [ ] setElementText
-- [ ] createText
-- [ ] setText
+- [x] createElement
+- [x] insert
+- [x] remove
+- [x] setElementText
+- [x] createText
+- [x] setText
 
 ---
 
 ### 3.2 Props 处理
 
-- [ ] patchProp
-- [ ] 处理 class
-- [ ] 处理 style
-- [ ] 处理事件
-- [ ] 处理属性
+- [x] patchProp
+- [x] 处理 class
+- [x] 处理 style
+- [x] 处理事件
+- [x] 处理属性
 
 ---
 
 ### 3.3 createApp
 
-- [ ] createApp 创建应用实例
-- [ ] mount 挂载应用
+- [x] createApp 创建应用实例
+- [x] mount 挂载应用
 
 ---
 
@@ -409,12 +409,12 @@ it('emit with kebab-case')
 
 ### 4.1 Parser（解析器）
 
-- [ ] baseParse 解析模板
-- [ ] 解析插值 `{{ expression }}`
-- [ ] 解析 element 开始标签
-- [ ] 解析 element 结束标签
-- [ ] 解析 text
-- [ ] 生成 AST
+- [x] baseParse 解析模板
+- [x] 解析插值 `{{ expression }}`
+- [x] 解析 element 开始标签
+- [x] 解析 element 结束标签
+- [x] 解析 text
+- [x] 生成 AST
 
 **测试文件**: `packages/compiler-core/__tests__/parse.spec.ts`
 
@@ -430,11 +430,11 @@ it('text')
 
 ### 4.2 Transform（转换器）
 
-- [ ] transform 遍历 AST
-- [ ] transformExpression 转换表达式
-- [ ] transformElement 转换元素
-- [ ] transformText 转换文本
-- [ ] 合并相邻文本节点和插值
+- [x] transform 遍历 AST
+- [x] transformExpression 转换表达式
+- [x] transformElement 转换元素
+- [x] transformText 转换文本
+- [x] 合并相邻文本节点和插值
 
 **测试文件**: `packages/compiler-core/__tests__/transform.spec.ts`
 
@@ -442,12 +442,12 @@ it('text')
 
 ### 4.3 Codegen（代码生成）
 
-- [ ] generate 生成代码
-- [ ] 生成 import 语句
-- [ ] 生成 render 函数
-- [ ] 处理 interpolation
-- [ ] 处理 element
-- [ ] 处理 text
+- [x] generate 生成代码
+- [x] 生成 import 语句
+- [x] 生成 render 函数
+- [x] 处理 interpolation
+- [x] 处理 element
+- [x] 处理 text
 
 **测试文件**: `packages/compiler-core/__tests__/codegen.spec.ts`
 
@@ -463,9 +463,9 @@ it('element')
 
 ### 4.4 编译整合
 
-- [ ] baseCompile 完整编译流程
-- [ ] parse -> transform -> generate
-- [ ] 生成可执行的 render 函数
+- [x] baseCompile 完整编译流程
+- [x] parse -> transform -> generate
+- [x] 生成可执行的 render 函数
 
 ---
 
@@ -484,11 +484,11 @@ it('element')
 
 - Reactivity: `40/40` (100%) ✅
 - Runtime-Core: `60/60` (100%) ✅
-- Runtime-DOM: `0/10` (0%)
-- Compiler-Core: `0/20` (0%)
+- Runtime-DOM: `13/13` (100%) ✅
+- Compiler-Core: `20/20` (100%) ✅
 - Vue: `0/5` (0%)
 
-**总进度**: `100/135` (74.1%)
+**总进度**: `133/138` (96.4%)
 
 ---
 

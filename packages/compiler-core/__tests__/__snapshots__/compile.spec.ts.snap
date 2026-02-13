@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Compiler integration > should compile complex template 1`] = `
+"const { toDisplayString: _toDisplayString, createElementVNode: _createElementVNode } = Vue
+return function render(_ctx, _cache) {return '
+      '}"
+`;
+
+exports[`Compiler integration > should compile simple template 1`] = `
+"const { createElementVNode: _createElementVNode } = Vue
+return function render(_ctx, _cache) {return _createElementVNode("div", null, 'hello')}"
+`;
+
+exports[`Compiler integration > should compile template with interpolation 1`] = `
+"const { toDisplayString: _toDisplayString, createElementVNode: _createElementVNode } = Vue
+return function render(_ctx, _cache) {return _createElementVNode("div", null, 'hello, ' + _toDisplayString(_ctx.name))}"
+`;
+
+exports[`Compiler integration > should compile template with multiple interpolations 1`] = `
+"const { toDisplayString: _toDisplayString, createElementVNode: _createElementVNode } = Vue
+return function render(_ctx, _cache) {return _createElementVNode("div", null, _toDisplayString(_ctx.greeting) + ', ' + _toDisplayString(_ctx.name) + '!')}"
+`;
+
+exports[`Compiler integration > should compile template with nested elements 1`] = `
+"const { createElementVNode: _createElementVNode } = Vue
+return function render(_ctx, _cache) {return _createElementVNode("div", null, _createElementVNode("h1", null, 'Title'), _createElementVNode("p", null, 'Content'))}"
+`;

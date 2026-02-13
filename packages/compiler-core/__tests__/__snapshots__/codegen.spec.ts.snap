@@ -1,0 +1,33 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Codegen > should generate code for element 1`] = `
+"const { createElementVNode: _createElementVNode } = Vue
+return function render(_ctx, _cache) {return _createElementVNode("div", null, null)}"
+`;
+
+exports[`Codegen > should generate code for element with interpolation 1`] = `
+"const { toDisplayString: _toDisplayString, createElementVNode: _createElementVNode } = Vue
+return function render(_ctx, _cache) {return _createElementVNode("div", null, 'hello, ' + _toDisplayString(_ctx.message))}"
+`;
+
+exports[`Codegen > should generate code for element with text 1`] = `
+"const { createElementVNode: _createElementVNode } = Vue
+return function render(_ctx, _cache) {return _createElementVNode("div", null, 'hello')}"
+`;
+
+exports[`Codegen > should generate code for interpolation 1`] = `
+"const { toDisplayString: _toDisplayString } = Vue
+return function render(_ctx, _cache) {return _toDisplayString(_ctx.message)}"
+`;
+
+exports[`Codegen > should generate code for nested elements 1`] = `
+"const { createElementVNode: _createElementVNode } = Vue
+return function render(_ctx, _cache) {return _createElementVNode("div", null, _createElementVNode("p", null, 'hello'))}"
+`;
+
+exports[`Codegen > should generate code for string 1`] = `"function render(_ctx, _cache) {return 'hello'}"`;
+
+exports[`Codegen > should generate render function 1`] = `
+"const { createElementVNode: _createElementVNode } = Vue
+return function render(_ctx, _cache) {return _createElementVNode("div", null, 'hello')}"
+`;

@@ -106,6 +106,15 @@ function genNodeList(nodes: any, context: any) {
     if (isString(node)) {
       push(node)
     }
+    else if (Array.isArray(node)) {
+      // 处理数组节点（多个子节点）
+      for (let j = 0; j < node.length; j++) {
+        genNode(node[j], context)
+        if (j < node.length - 1) {
+          push(', ')
+        }
+      }
+    }
     else {
       genNode(node, context)
     }
