@@ -21,10 +21,9 @@ export function inject(key: string | symbol, defaultValue?: any) {
   if (currentInstance) {
     const parentProvides = currentInstance.parent?.provides
 
-    if (key in parentProvides) {
+    if (parentProvides && key in parentProvides) {
       return parentProvides[key]
-    }
-    else if (defaultValue) {
+    } else if (defaultValue !== undefined) {
       if (typeof defaultValue === 'function') {
         return defaultValue()
       }

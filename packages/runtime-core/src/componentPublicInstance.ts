@@ -12,8 +12,7 @@ export const PublicInstanceProxyHandlers = {
 
     if (hasOwn(setupState, key)) {
       return setupState[key]
-    }
-    else if (hasOwn(props, key)) {
+    } else if (hasOwn(props, key)) {
       return props[key]
     }
 
@@ -21,5 +20,13 @@ export const PublicInstanceProxyHandlers = {
     if (publicGetter) {
       return publicGetter(instance)
     }
+  },
+  has({ _: instance }: any, key: string) {
+    const { setupState, props } = instance
+    return (
+      hasOwn(setupState, key) ||
+      hasOwn(props, key) ||
+      key in publicPropertiesMap
+    )
   },
 }

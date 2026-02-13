@@ -196,11 +196,11 @@ it('should compute lazily')
 
 ### 2.1 VNode 与 h 函数
 
-- [ ] createVNode 创建虚拟节点
-- [ ] h 函数作为 createVNode 的便捷方式
-- [ ] shapeFlag 标识 vnode 类型
-- [ ] 支持 string children
-- [ ] 支持 array children
+- [x] createVNode 创建虚拟节点
+- [x] h 函数作为 createVNode 的便捷方式
+- [x] shapeFlag 标识 vnode 类型
+- [x] 支持 string children
+- [x] 支持 array children
 
 **测试文件**: `packages/runtime-core/__tests__/vnode.spec.ts`
 
@@ -208,11 +208,11 @@ it('should compute lazily')
 
 ### 2.2 Component 初始化
 
-- [ ] createComponentInstance 创建组件实例
-- [ ] setupComponent 初始化组件
-- [ ] 支持 setup 函数
-- [ ] setup 返回值可以在 render 中访问
-- [ ] 支持 render 函数
+- [x] createComponentInstance 创建组件实例
+- [x] setupComponent 初始化组件
+- [x] 支持 setup 函数
+- [x] setup 返回值可以在 render 中访问
+- [x] 支持 render 函数
 
 **测试文件**: `packages/runtime-core/__tests__/component.spec.ts`
 
@@ -220,11 +220,11 @@ it('should compute lazily')
 
 ### 2.3 Component Props
 
-- [ ] initProps 初始化 props
-- [ ] props 在 setup 中可访问
-- [ ] props 在 render 中可访问（通过 this）
-- [ ] props 是 shallowReadonly 的
-- [ ] props 修改时输出警告
+- [x] initProps 初始化 props
+- [x] props 在 setup 中可访问
+- [x] props 在 render 中可访问（通过 this）
+- [x] props 是 shallowReadonly 的
+- [x] props 修改时输出警告
 
 **测试文件**: `packages/runtime-core/__tests__/componentProps.spec.ts`
 
@@ -232,11 +232,11 @@ it('should compute lazily')
 
 ### 2.4 Component Emit
 
-- [ ] emit 触发事件
-- [ ] 支持驼峰命名
-- [ ] 支持短横线命名
-- [ ] 传递参数给事件处理函数
-- [ ] emit 在 setup context 中可用
+- [x] emit 触发事件
+- [x] 支持驼峰命名
+- [x] 支持短横线命名
+- [x] 传递参数给事件处理函数
+- [x] emit 在 setup context 中可用
 
 **测试文件**: `packages/runtime-core/__tests__/componentEmits.spec.ts`
 
@@ -251,10 +251,10 @@ it('emit with kebab-case')
 
 ### 2.5 Component Slots
 
-- [ ] 基础 slots 功能
-- [ ] 具名 slots
-- [ ] 作用域 slots（传递数据）
-- [ ] renderSlot 渲染 slot
+- [x] 基础 slots 功能
+- [x] 具名 slots
+- [x] 作用域 slots（传递数据）
+- [x] renderSlot 渲染 slot
 
 **测试文件**: `packages/runtime-core/__tests__/componentSlots.spec.ts`
 
@@ -262,11 +262,11 @@ it('emit with kebab-case')
 
 ### 2.6 Component Proxy
 
-- [ ] $el 访问根元素
-- [ ] $slots 访问 slots
-- [ ] $props 访问 props
-- [ ] setup 返回值在 this 中可访问
-- [ ] props 在 this 中可访问
+- [x] $el 访问根元素
+- [x] $slots 访问 slots
+- [x] $props 访问 props
+- [x] setup 返回值在 this 中可访问
+- [x] props 在 this 中可访问
 
 **测试文件**: `packages/runtime-core/__tests__/componentPublicInstance.spec.ts`
 
@@ -274,19 +274,19 @@ it('emit with kebab-case')
 
 ### 2.7 Fragment 与 Text
 
-- [ ] Fragment 类型节点
-- [ ] Text 类型节点
-- [ ] createTextVNode 创建文本节点
+- [x] Fragment 类型节点
+- [x] Text 类型节点
+- [x] createTextVNode 创建文本节点
 
 ---
 
 ### 2.8 Provide/Inject
 
-- [ ] provide 提供数据
-- [ ] inject 注入数据
-- [ ] 支持跨层级注入
-- [ ] inject 默认值
-- [ ] inject 默认值为函数时执行
+- [x] provide 提供数据
+- [x] inject 注入数据
+- [x] 支持跨层级注入
+- [x] inject 默认值
+- [x] inject 默认值为函数时执行
 
 **测试文件**: `packages/runtime-core/__tests__/apiInject.spec.ts`
 
@@ -294,44 +294,44 @@ it('emit with kebab-case')
 
 ### 2.9 getCurrentInstance
 
-- [ ] getCurrentInstance 获取当前组件实例
-- [ ] 只在 setup 中可用
+- [x] getCurrentInstance 获取当前组件实例
+- [x] 只在 setup 中可用
 
 ---
 
 ### 2.10 Element 渲染
 
-- [ ] mountElement 挂载元素
-- [ ] 支持 props
-- [ ] 支持 children
-- [ ] 支持事件监听
+- [x] mountElement 挂载元素
+- [x] 支持 props
+- [x] 支持 children
+- [x] 支持事件监听
 
 ---
 
 ### 2.11 Element 更新
 
-- [ ] patchElement 更新元素
-- [ ] patchProps 更新属性
-- [ ] patchChildren 更新子节点
+- [x] patchElement 更新元素
+- [x] patchProps 更新属性
+- [x] patchChildren 更新子节点
 
 ---
 
 ### 2.12 Children 更新场景
 
-- [ ] text -> text
-- [ ] text -> array
-- [ ] array -> text
-- [ ] array -> array (diff)
+- [x] text -> text
+- [x] text -> array
+- [x] array -> text
+- [x] array -> array (diff)
 
 ---
 
 ### 2.13 Diff 算法 - 双端对比
 
-- [ ] 左侧对比
-- [ ] 右侧对比
-- [ ] 新节点比老节点多 - 新增
-- [ ] 老节点比新节点多 - 删除
-- [ ] 中间对比 - 乱序
+- [x] 左侧对比
+- [x] 右侧对比
+- [x] 新节点比老节点多 - 新增
+- [x] 老节点比新节点多 - 删除
+- [x] 中间对比 - 乱序
 
 **测试文件**: `packages/runtime-core/__tests__/renderer.spec.ts`
 
@@ -339,27 +339,27 @@ it('emit with kebab-case')
 
 ### 2.14 Diff 算法 - 最长递增子序列
 
-- [ ] 移动节点
-- [ ] 使用最长递增子序列优化
-- [ ] 新增节点
-- [ ] 删除节点
+- [x] 移动节点
+- [x] 使用最长递增子序列优化
+- [x] 新增节点
+- [x] 删除节点
 
 ---
 
 ### 2.15 Component 更新
 
-- [ ] shouldUpdateComponent 判断是否需要更新
-- [ ] props 变化时更新组件
-- [ ] 更新时重新执行 render
-- [ ] 使用 scheduler 异步更新
+- [x] shouldUpdateComponent 判断是否需要更新
+- [x] props 变化时更新组件
+- [x] 更新时重新执行 render
+- [x] 使用 scheduler 异步更新
 
 ---
 
 ### 2.16 nextTick
 
-- [ ] nextTick 在 DOM 更新后执行
-- [ ] 支持 Promise
-- [ ] 支持回调函数
+- [x] nextTick 在 DOM 更新后执行
+- [x] 支持 Promise
+- [x] 支持回调函数
 
 **测试文件**: `packages/runtime-core/__tests__/scheduler.spec.ts`
 
@@ -367,7 +367,9 @@ it('emit with kebab-case')
 
 ### 2.17 自定义渲染器
 
-- [ ] createRenderer 创建渲染器
+- [x] createRenderer 创建渲染器
+- [x] 支持自定义节点操作
+- [x] createApp API
 - [ ] 支持自定义节点操作
 - [ ] createApp API
 
@@ -481,12 +483,12 @@ it('element')
 ## 进度统计
 
 - Reactivity: `40/40` (100%) ✅
-- Runtime-Core: `0/60` (0%)
+- Runtime-Core: `60/60` (100%) ✅
 - Runtime-DOM: `0/10` (0%)
 - Compiler-Core: `0/20` (0%)
 - Vue: `0/5` (0%)
 
-**总进度**: `40/135` (29.6%)
+**总进度**: `100/135` (74.1%)
 
 ---
 

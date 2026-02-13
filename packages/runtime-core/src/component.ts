@@ -43,13 +43,13 @@ function setupStatefulComponent(instance: any) {
 
     const setupResult = setup(shallowReadonly(instance.props), {
       emit: instance.emit.bind(null, instance),
+      slots: instance.slots,
     })
 
     setCurrentInstance(null)
 
     handleSetupResult(instance, setupResult)
-  }
-  else {
+  } else {
     finishComponentSetup(instance)
   }
 }
