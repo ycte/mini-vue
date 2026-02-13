@@ -6,6 +6,7 @@ import {
   reactive,
   readonly,
   shallowReadonly,
+  toRaw,
 } from '../src/reactive'
 
 describe('reactive', () => {
@@ -29,6 +30,14 @@ describe('reactive', () => {
     expect(isReactive(observed.nested)).toBe(true)
     expect(isReactive(observed.array)).toBe(true)
     expect(isReactive(observed.array[0])).toBe(true)
+  })
+
+  it('should return same proxy for same object', () => {
+    const original = { foo: 1 }
+    const observed1 = reactive(original)
+    const observed2 = reactive(original)
+
+    expect(observed1).toBe(observed2)
   })
 })
 
@@ -152,5 +161,29 @@ describe('shallowReadonly', () => {
 
     wrapped.nested.foo = 2
     expect(wrapped.nested.foo).toBe(2)
+  })
+})
+
+describe('toRaw', () => {
+  it('should return original object from reactive', () => {
+    const original = { foo: 1 }
+    const observed = reactive(original)
+
+    expect(toRaw(observed)).toBe(original)
+    expect(toRaw(original)).toBe(original)
+  })
+
+  it('should return original object from readonly', () => {
+    const original = { foo: 1 }
+    const wrapped = readonly(original)
+
+    expect(toRaw(wrapped)).toBe(original)
+  })
+
+  it('should work with nested reactive', () => {
+    const original = { nested: { foo: 1 } }
+    const observed = reactive(original)
+
+    expect(toRaw(observed.nested)).toBe(original.nested)
   })
 })

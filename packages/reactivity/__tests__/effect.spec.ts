@@ -114,4 +114,43 @@ describe('effect', () => {
     obj.prop++
     expect(dummy).toBe(2)
   })
+
+  it('should avoid duplicate dependency collection', () => {
+    const obj = reactive({ prop: 1 })
+    const fnSpy = vi.fn(() => {
+      // 多次访问同一属性
+      obj.prop
+      obj.prop
+      obj.prop
+    })
+
+    effect(fnSpy)
+    expect(fnSpy).toHaveBeenCalledTimes(1)
+
+    // 触发更新应该只执行一次
+    obj.prop = 2
+    expect(fnSpy).toHaveBeenCalledTimes(2)
+  })
+
+  it('should handle branch switching (cleanup)', () => {
+    let dummy
+    const obj = reactive({ ok: true, text: 'hello' })
+    const runner = effect(() => {
+      dummy = obj.ok ? obj.text : 'not ok'
+    })
+
+    expect(dummy).toBe('hello')
+
+    // 改变分支条件
+    obj.ok = false
+    expect(dummy).toBe('not ok')
+
+    // 改变 text 不应该触发 effect（因为已经不在那个分支了）
+    obj.text = 'world'
+    expect(dummy).toBe('not ok')
+
+    // 恢复分支
+    obj.ok = true
+    expect(dummy).toBe('world')
+  })
 })

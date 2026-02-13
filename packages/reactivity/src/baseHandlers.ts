@@ -16,6 +16,9 @@ function createGetter(isReadonly = false, shallow = false) {
     else if (key === ReactiveFlags.IS_READONLY) {
       return isReadonly
     }
+    else if (key === '__v_raw') {
+      return target
+    }
 
     const res = Reflect.get(target, key, receiver)
 

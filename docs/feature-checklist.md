@@ -8,11 +8,11 @@
 
 ### 1.1 Effect 基础
 
-- [ ] effect 函数立即执行
-- [ ] effect 在响应式数据变化时重新执行
-- [ ] effect 返回 runner 函数
-- [ ] runner 函数可以手动执行 effect
-- [ ] runner 返回 effect 函数的返回值
+- [x] effect 函数立即执行
+- [x] effect 在响应式数据变化时重新执行
+- [x] effect 返回 runner 函数
+- [x] runner 函数可以手动执行 effect
+- [x] runner 返回 effect 函数的返回值
 
 **测试文件**: `packages/reactivity/__tests__/effect.spec.ts`
 
@@ -29,9 +29,9 @@ it('effect should return the return value of the passed function')
 
 ### 1.2 Effect Scheduler
 
-- [ ] scheduler 选项基础功能
-- [ ] 响应式数据变化时调用 scheduler，而不是直接执行 effect
-- [ ] runner 函数仍然正常执行
+- [x] scheduler 选项基础功能
+- [x] 响应式数据变化时调用 scheduler，而不是直接执行 effect
+- [x] runner 函数仍然正常执行
 
 **测试用例**:
 
@@ -43,10 +43,10 @@ it('scheduler')
 
 ### 1.3 Effect Stop
 
-- [ ] stop 函数停止 effect 的执行
-- [ ] stop 后响应式数据变化不再触发 effect
-- [ ] onStop 回调函数
-- [ ] stop 后 runner 仍可手动执行
+- [x] stop 函数停止 effect 的执行
+- [x] stop 后响应式数据变化不再触发 effect
+- [x] onStop 回调函数
+- [x] stop 后 runner 仍可手动执行
 
 **测试用例**:
 
@@ -60,10 +60,10 @@ it('should still be manually callable after stop')
 
 ### 1.4 Reactive 基础
 
-- [ ] reactive 创建响应式对象
-- [ ] 响应式对象不等于原始对象
-- [ ] 读取响应式对象的属性返回正确的值
-- [ ] 修改响应式对象的属性触发依赖更新
+- [x] reactive 创建响应式对象
+- [x] 响应式对象不等于原始对象
+- [x] 读取响应式对象的属性返回正确的值
+- [x] 修改响应式对象的属性触发依赖更新
 
 **测试文件**: `packages/reactivity/__tests__/reactive.spec.ts`
 
@@ -78,12 +78,12 @@ it('nested reactives')
 
 ### 1.5 Readonly
 
-- [ ] readonly 创建只读对象
-- [ ] 只读对象不能被修改
-- [ ] 修改只读对象时输出警告
-- [ ] 只读对象的嵌套属性也是只读的
+- [x] readonly 创建只读对象
+- [x] 只读对象不能被修改
+- [x] 修改只读对象时输出警告
+- [x] 只读对象的嵌套属性也是只读的
 
-**测试文件**: `packages/reactivity/__tests__/readonly.spec.ts`
+**测试文件**: `packages/reactivity/__tests__/reactive.spec.ts`
 
 **测试用例**:
 
@@ -96,10 +96,10 @@ it('warn when call set')
 
 ### 1.6 类型判断
 
-- [ ] isReactive 判断是否为响应式对象
-- [ ] isReadonly 判断是否为只读对象
-- [ ] isProxy 判断是否为代理对象
-- [ ] 嵌套对象的类型判断正确
+- [x] isReactive 判断是否为响应式对象
+- [x] isReadonly 判断是否为只读对象
+- [x] isProxy 判断是否为代理对象
+- [x] 嵌套对象的类型判断正确
 
 **测试用例**:
 
@@ -114,11 +114,11 @@ it('nested reactive')
 
 ### 1.7 ShallowReadonly
 
-- [ ] shallowReadonly 只对第一层属性只读
-- [ ] 嵌套对象不是只读的
-- [ ] 第一层属性修改时输出警告
+- [x] shallowReadonly 只对第一层属性只读
+- [x] 嵌套对象不是只读的
+- [x] 第一层属性修改时输出警告
 
-**测试文件**: `packages/reactivity/__tests__/shallowReadonly.spec.ts`
+**测试文件**: `packages/reactivity/__tests__/reactive.spec.ts`
 
 **测试用例**:
 
@@ -130,11 +130,11 @@ it('should not make non-reactive properties reactive')
 
 ### 1.8 Ref
 
-- [ ] ref 创建响应式引用
-- [ ] ref.value 访问值
-- [ ] ref.value 修改值触发依赖更新
-- [ ] ref 包裹对象时自动 reactive
-- [ ] 在 effect 中访问 ref 触发依赖收集
+- [x] ref 创建响应式引用
+- [x] ref.value 访问值
+- [x] ref.value 修改值触发依赖更新
+- [x] ref 包裹对象时自动 reactive
+- [x] 在 effect 中访问 ref 触发依赖收集
 
 **测试文件**: `packages/reactivity/__tests__/ref.spec.ts`
 
@@ -150,9 +150,9 @@ it('should make nested properties reactive')
 
 ### 1.9 Ref 工具函数
 
-- [ ] isRef 判断是否为 ref
-- [ ] unRef 获取 ref 的值或原始值
-- [ ] proxyRefs 自动解包 ref
+- [x] isRef 判断是否为 ref
+- [x] unRef 获取 ref 的值或原始值
+- [x] proxyRefs 自动解包 ref
 
 **测试用例**:
 
@@ -167,10 +167,10 @@ it('proxyRefs set')
 
 ### 1.10 Computed
 
-- [ ] computed 创建计算属性
-- [ ] computed 具有缓存
-- [ ] 依赖变化时重新计算
-- [ ] 不访问时不计算（lazy）
+- [x] computed 创建计算属性
+- [x] computed 具有缓存
+- [x] 依赖变化时重新计算
+- [x] 不访问时不计算（lazy）
 
 **测试文件**: `packages/reactivity/__tests__/computed.spec.ts`
 
@@ -185,10 +185,10 @@ it('should compute lazily')
 
 ### 1.11 优化与边界情况
 
-- [ ] 同一个对象多次 reactive 返回同一个代理
-- [ ] 避免重复收集依赖
-- [ ] cleanup 机制（分支切换）
-- [ ] toRaw 获取原始对象
+- [x] 同一个对象多次 reactive 返回同一个代理
+- [x] 避免重复收集依赖
+- [x] cleanup 机制（分支切换）
+- [x] toRaw 获取原始对象
 
 ---
 
@@ -480,13 +480,13 @@ it('element')
 
 ## 进度统计
 
-- Reactivity: `0/40` (0%)
+- Reactivity: `40/40` (100%) ✅
 - Runtime-Core: `0/60` (0%)
 - Runtime-DOM: `0/10` (0%)
 - Compiler-Core: `0/20` (0%)
 - Vue: `0/5` (0%)
 
-**总进度**: `0/135` (0%)
+**总进度**: `40/135` (29.6%)
 
 ---
 
